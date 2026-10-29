@@ -1,0 +1,886 @@
+{
+  "Chào bé đến với Đảo Khối Số! Mình cùng chơi và khám phá những người bạn nhỏ nhé!": {
+    "src": "/audio/narration/d66d4406e9f03460.mp3",
+    "durationMs": 5846
+  },
+  "Bé chạm một đáp án, rồi bấm nút có dấu tích để kiểm tra nhé.": {
+    "src": "/audio/narration/8597a57c448bb2ea.mp3",
+    "durationMs": 4790
+  },
+  "Gần đúng rồi! Không sao đâu, mình cùng thử lại nhé.": {
+    "src": "/audio/narration/642f2bd4dce95825.mp3",
+    "durationMs": 4128
+  },
+  "Bé làm được rồi! Cảm ơn bé đã cùng các bạn khám phá. Mình cùng nhận ngôi sao nào!": {
+    "src": "/audio/narration/d02c8d2ab404c69c.mp3",
+    "durationMs": 6392
+  },
+  "Chào bé đến xưởng khối số! Bé có thể ghép, tách, thử chiếc cân hoặc tự xây một ngôi nhà.": {
+    "src": "/audio/narration/45c7a4f20fce6e1a.mp3",
+    "durationMs": 6717
+  },
+  "Năm câu đố nhỏ đang đợi bé! Chọn bắt đầu để cùng thử sức nhé. Không cần vội đâu!": {
+    "src": "/audio/narration/e357f379c92b8a05.mp3",
+    "durationMs": 6249
+  },
+  "Bây giờ bé có thể bấm mũi tên để tiếp tục nhé.": {
+    "src": "/audio/narration/982526586ae28ba1.mp3",
+    "durationMs": 3513
+  },
+  "không": {
+    "src": "/audio/narration/0ec84c3fdadbdb8c.mp3",
+    "durationMs": 636
+  },
+  "một": {
+    "src": "/audio/narration/0231bfca9ba02e81.mp3",
+    "durationMs": 530
+  },
+  "hai": {
+    "src": "/audio/narration/739b9d664d77db3e.mp3",
+    "durationMs": 635
+  },
+  "ba": {
+    "src": "/audio/narration/970f519c2cadbcef.mp3",
+    "durationMs": 575
+  },
+  "bốn": {
+    "src": "/audio/narration/dd0bfdcc0de1415c.mp3",
+    "durationMs": 609
+  },
+  "năm": {
+    "src": "/audio/narration/22629a25845a64c1.mp3",
+    "durationMs": 550
+  },
+  "sáu": {
+    "src": "/audio/narration/81f089091a3e3bf9.mp3",
+    "durationMs": 689
+  },
+  "bảy": {
+    "src": "/audio/narration/2b617348a15fc840.mp3",
+    "durationMs": 602
+  },
+  "tám": {
+    "src": "/audio/narration/e36b1cb6966e7722.mp3",
+    "durationMs": 572
+  },
+  "chín": {
+    "src": "/audio/narration/888dfa55aca7bcb5.mp3",
+    "durationMs": 591
+  },
+  "mười": {
+    "src": "/audio/narration/35c274e20def60b1.mp3",
+    "durationMs": 645
+  },
+  "mười một": {
+    "src": "/audio/narration/fb8bb5a0dfe2d76d.mp3",
+    "durationMs": 772
+  },
+  "mười hai": {
+    "src": "/audio/narration/ad095192bff670b7.mp3",
+    "durationMs": 900
+  },
+  "mười ba": {
+    "src": "/audio/narration/b19cfdc729c74a39.mp3",
+    "durationMs": 831
+  },
+  "mười bốn": {
+    "src": "/audio/narration/e4ea328d318a2806.mp3",
+    "durationMs": 866
+  },
+  "mười lăm": {
+    "src": "/audio/narration/7e994ec977632bb6.mp3",
+    "durationMs": 819
+  },
+  "mười sáu": {
+    "src": "/audio/narration/60ed271c574b4677.mp3",
+    "durationMs": 912
+  },
+  "mười bảy": {
+    "src": "/audio/narration/1de937c55bc8d175.mp3",
+    "durationMs": 854
+  },
+  "mười tám": {
+    "src": "/audio/narration/e86c03caeb58adb2.mp3",
+    "durationMs": 935
+  },
+  "mười chín": {
+    "src": "/audio/narration/91995c9d61cf49fe.mp3",
+    "durationMs": 912
+  },
+  "hai mươi": {
+    "src": "/audio/narration/5120df9a32c1b6c8.mp3",
+    "durationMs": 890
+  },
+  "Bé hơn": {
+    "src": "/audio/narration/fb08e06a4766a0b2.mp3",
+    "durationMs": 866
+  },
+  "Lớn hơn": {
+    "src": "/audio/narration/63b9d6c4fbb07798.mp3",
+    "durationMs": 895
+  },
+  "Bằng nhau": {
+    "src": "/audio/narration/1730277bb0a67590.mp3",
+    "durationMs": 877
+  },
+  "Số chẵn": {
+    "src": "/audio/narration/14cd154980ffe640.mp3",
+    "durationMs": 863
+  },
+  "Số lẻ": {
+    "src": "/audio/narration/d4c09e467abd966e.mp3",
+    "durationMs": 875
+  },
+  "Tam giác": {
+    "src": "/audio/narration/54681a27a31abcf7.mp3",
+    "durationMs": 790
+  },
+  "Hình vuông": {
+    "src": "/audio/narration/f636b9847d248a89.mp3",
+    "durationMs": 890
+  },
+  "Hình tròn": {
+    "src": "/audio/narration/2727db7de5044083.mp3",
+    "durationMs": 947
+  },
+  "Chữ nhật": {
+    "src": "/audio/narration/aafd366a89376603.mp3",
+    "durationMs": 680
+  },
+  "Mầm": {
+    "src": "/audio/narration/071b56806b38452d.mp3",
+    "durationMs": 564
+  },
+  "Mây": {
+    "src": "/audio/narration/2ac7de95fba3bbe2.mp3",
+    "durationMs": 575
+  },
+  "Nắng": {
+    "src": "/audio/narration/df13ae8d20142adc.mp3",
+    "durationMs": 585
+  },
+  "Lá": {
+    "src": "/audio/narration/9000a607b00d8675.mp3",
+    "durationMs": 617
+  },
+  "Đào": {
+    "src": "/audio/narration/00cce5b6930621c8.mp3",
+    "durationMs": 643
+  },
+  "Biển": {
+    "src": "/audio/narration/94301e5018ff3873.mp3",
+    "durationMs": 589
+  },
+  "Mơ": {
+    "src": "/audio/narration/e4f34a21e512c38e.mp3",
+    "durationMs": 587
+  },
+  "Cam": {
+    "src": "/audio/narration/441830f84aaad99e.mp3",
+    "durationMs": 546
+  },
+  "Rêu": {
+    "src": "/audio/narration/f5ea09d3200c9553.mp3",
+    "durationMs": 659
+  },
+  "Trời": {
+    "src": "/audio/narration/c144940073b4b199.mp3",
+    "durationMs": 603
+  },
+  "Làm quen với Mầm, Mây và Nắng.": {
+    "src": "/audio/narration/c73d07ed1a0d4538.mp3",
+    "durationMs": 2544
+  },
+  "Chạm từng ô của bạn Nắng để đếm đến 3.": {
+    "src": "/audio/narration/b2a4346d4940f247.mp3",
+    "durationMs": 2932
+  },
+  "Trong khu vườn có ba người bạn nhỏ đang đợi bé…": {
+    "src": "/audio/narration/092c407234b1f9a3.mp3",
+    "durationMs": 3363
+  },
+  "Cả ba bạn đã đến rồi! Bây giờ, cùng đếm những khối nhỏ của Nắng nhé.": {
+    "src": "/audio/narration/bb2b356983c73451.mp3",
+    "durationMs": 5325
+  },
+  "Chào bé! Tớ là Mầm. Nhỏ xíu mà thích khám phá lắm!": {
+    "src": "/audio/narration/77c7bfa2f9d81f30.mp3",
+    "durationMs": 4372
+  },
+  "Xin chào! Tớ là Mây. Tớ thích nhảy cùng bạn bè!": {
+    "src": "/audio/narration/18318625997a922a.mp3",
+    "durationMs": 4090
+  },
+  "Tớ là Nắng! Bé cùng đếm những khối nhỏ của tớ nhé!": {
+    "src": "/audio/narration/55866f44eb77d0b7.mp3",
+    "durationMs": 3948
+  },
+  "Bạn Nắng có bao nhiêu khối?": {
+    "src": "/audio/narration/5b83383bae3397ff.mp3",
+    "durationMs": 2052
+  },
+  "Bạn Nắng có bao nhiêu khối? Bé chạm một đáp án, rồi bấm nút có dấu tích để kiểm tra nhé.": {
+    "src": "/audio/narration/d922bbe82ba4f516.mp3",
+    "durationMs": 6858
+  },
+  "Một, hai, ba! Ba khối nhỏ tạo thành bạn Nắng.": {
+    "src": "/audio/narration/bc0e6d0502ffa196.mp3",
+    "durationMs": 4047
+  },
+  "Gặp Lá và Đào trong khu vườn.": {
+    "src": "/audio/narration/cf878d6c3e7832e7.mp3",
+    "durationMs": 2282
+  },
+  "Đếm từng khối của bạn đứng bên phải nhé.": {
+    "src": "/audio/narration/06679214016f528f.mp3",
+    "durationMs": 2768
+  },
+  "Hôm nay có hai người bạn mới đến khu vườn. Bé cùng chào các bạn nhé!": {
+    "src": "/audio/narration/c751ae29bb456743.mp3",
+    "durationMs": 5290
+  },
+  "Lá và Đào rất vui được gặp bé! Cùng đếm từng khối của hai bạn nào.": {
+    "src": "/audio/narration/48f17925cb0c11ae.mp3",
+    "durationMs": 5005
+  },
+  "Chào bé! Tớ là Lá. Tớ thích chăm cây và khám phá khu vườn!": {
+    "src": "/audio/narration/dddb94ac3af197ff.mp3",
+    "durationMs": 4860
+  },
+  "Xin chào! Tớ là Đào. Tớ thích nhảy múa. Mình cùng chơi nhé!": {
+    "src": "/audio/narration/03c2abbead2e7433.mp3",
+    "durationMs": 5100
+  },
+  "Nhân vật nào có năm khối?": {
+    "src": "/audio/narration/2e0d0a9fe05e003a.mp3",
+    "durationMs": 2050
+  },
+  "Nhân vật nào có năm khối? Bé chạm một đáp án, rồi bấm nút có dấu tích để kiểm tra nhé.": {
+    "src": "/audio/narration/8a371c12185e0d30.mp3",
+    "durationMs": 6856
+  },
+  "Bạn Đào có đúng 5 khối đơn vị.": {
+    "src": "/audio/narration/0a180489f21dbcea.mp3",
+    "durationMs": 2435
+  },
+  "Không bỏ sót người bạn nhỏ nào!": {
+    "src": "/audio/narration/6d724d272d5d8ef4.mp3",
+    "durationMs": 2450
+  },
+  "Ô đã đếm có dấu tích. Hãy chạm các ô còn lại.": {
+    "src": "/audio/narration/09ae1618a1b5ece4.mp3",
+    "durationMs": 3718
+  },
+  "Bé đã đếm được bao nhiêu khối?": {
+    "src": "/audio/narration/407f93c7a7831dd0.mp3",
+    "durationMs": 2294
+  },
+  "Bé đã đếm được bao nhiêu khối? Bé chạm một đáp án, rồi bấm nút có dấu tích để kiểm tra nhé.": {
+    "src": "/audio/narration/05727b7366ee217f.mp3",
+    "durationMs": 7100
+  },
+  "Năm lần chạm, năm khối khác nhau!": {
+    "src": "/audio/narration/22b486c86abb4bf5.mp3",
+    "durationMs": 2522
+  },
+  "Những người bạn lớn hơn xuất hiện.": {
+    "src": "/audio/narration/71151b60123dcac1.mp3",
+    "durationMs": 2166
+  },
+  "Chạm từng ô, lần lượt từ dưới lên trên.": {
+    "src": "/audio/narration/45d1c81cb5174c1d.mp3",
+    "durationMs": 3083
+  },
+  "Năm người bạn mới đang đến thăm hòn đảo. Bé cùng làm quen nhé!": {
+    "src": "/audio/narration/01f73e7f652a0478.mp3",
+    "durationMs": 4635
+  },
+  "Cả năm người bạn đã đến rồi! Cùng khám phá những nhóm khối lớn hơn nhé.": {
+    "src": "/audio/narration/25c5f03af71bed39.mp3",
+    "durationMs": 5220
+  },
+  "Chào bé! Tớ là Biển. Tớ mang những con sóng nhỏ đến chơi cùng bé!": {
+    "src": "/audio/narration/4eff551c4522bbd4.mp3",
+    "durationMs": 5186
+  },
+  "Tớ là Mơ. Tớ có rất nhiều ý tưởng hay. Cùng khám phá nhé!": {
+    "src": "/audio/narration/1a0405445dcb8faa.mp3",
+    "durationMs": 4889
+  },
+  "Xin chào, tớ là Cam! Tớ thích chạy nhảy và giúp đỡ bạn bè!": {
+    "src": "/audio/narration/186e9717e35a216f.mp3",
+    "durationMs": 4868
+  },
+  "Tớ là Rêu. Mình cứ từ từ đếm từng khối, không cần vội nhé!": {
+    "src": "/audio/narration/24298ae5a47cf8a3.mp3",
+    "durationMs": 4819
+  },
+  "Chào bé, tớ là Trời! Cùng những người bạn nhỏ, mình làm được rất nhiều điều!": {
+    "src": "/audio/narration/5c98ca070715c6e5.mp3",
+    "durationMs": 5696
+  },
+  "Bạn Trời có bao nhiêu khối?": {
+    "src": "/audio/narration/916b5b4a02b5a6ac.mp3",
+    "durationMs": 2098
+  },
+  "Bạn Trời có bao nhiêu khối? Bé chạm một đáp án, rồi bấm nút có dấu tích để kiểm tra nhé.": {
+    "src": "/audio/narration/bea74ebd0e0c556f.mp3",
+    "durationMs": 6905
+  },
+  "Hai cột, mỗi cột năm khối: tất cả là 10.": {
+    "src": "/audio/narration/76f83076d413a97c.mp3",
+    "durationMs": 3757
+  },
+  "Bên nào có nhiều bạn hơn nhỉ?": {
+    "src": "/audio/narration/bfb118666675a5a9.mp3",
+    "durationMs": 2270
+  },
+  "Đếm hai bên. Bên có 5 khối nhiều hơn bên có 3 khối.": {
+    "src": "/audio/narration/504f210c0b84330b.mp3",
+    "durationMs": 4266
+  },
+  "Kéo nhóm có 5 khối vào ô số 5, hoặc chạm để chọn.": {
+    "src": "/audio/narration/74ac08208393b149.mp3",
+    "durationMs": 4097
+  },
+  "Đếm từng nhóm rồi tìm nhóm có đúng 5 khối.": {
+    "src": "/audio/narration/26ed1cdb6b7013ae.mp3",
+    "durationMs": 3197
+  },
+  "Chọn dấu đúng: 3 … 5": {
+    "src": "/audio/narration/3dbbfb0beeed0f1e.mp3",
+    "durationMs": 2237
+  },
+  "Chọn dấu đúng: 3 … 5 Bé chạm một đáp án, rồi bấm nút có dấu tích để kiểm tra nhé.": {
+    "src": "/audio/narration/f7bda5264596bee5.mp3",
+    "durationMs": 6695
+  },
+  "3 ít hơn 5. Đĩa có 5 khối sẽ hạ xuống.": {
+    "src": "/audio/narration/ae6b23fbf5dcbd59.mp3",
+    "durationMs": 3687
+  },
+  "Chia khối và khám phá chiếc cân.": {
+    "src": "/audio/narration/76420370973c0e0d.mp3",
+    "durationMs": 2271
+  },
+  "Thử chuyển khối qua lại. Mỗi khối nặng như nhau.": {
+    "src": "/audio/narration/83f4247544ce2958.mp3",
+    "durationMs": 3410
+  },
+  "Chạm đủ năm khối trước khi chia thành hai nhóm nhé.": {
+    "src": "/audio/narration/5535c1eb52bdb239.mp3",
+    "durationMs": 3443
+  },
+  "Mỗi lần chạm một khối mới, bé sẽ thấy một dấu tích.": {
+    "src": "/audio/narration/48696f02ad592164.mp3",
+    "durationMs": 3814
+  },
+  "Chọn dấu đúng: 2 … 3": {
+    "src": "/audio/narration/26e7374fa4cf6ff5.mp3",
+    "durationMs": 2318
+  },
+  "Chọn dấu đúng: 2 … 3 Bé chạm một đáp án, rồi bấm nút có dấu tích để kiểm tra nhé.": {
+    "src": "/audio/narration/63dadb67481f2c0a.mp3",
+    "durationMs": 6730
+  },
+  "2 + 3 vẫn là 5. Bên có 3 khối nặng hơn!": {
+    "src": "/audio/narration/ee3df93f43de4c83.mp3",
+    "durationMs": 3815
+  },
+  "Hai người bạn, một cuộc hội ngộ!": {
+    "src": "/audio/narration/59ea7fa1249a2637.mp3",
+    "durationMs": 2376
+  },
+  "Kéo nhóm tím sang nhóm vàng, hoặc bấm Ghép khối.": {
+    "src": "/audio/narration/0cb0b976680e8a02.mp3",
+    "durationMs": 3493
+  },
+  "2 + 3 bằng bao nhiêu?": {
+    "src": "/audio/narration/17a00a8f0c69482c.mp3",
+    "durationMs": 1970
+  },
+  "2 + 3 bằng bao nhiêu? Bé chạm một đáp án, rồi bấm nút có dấu tích để kiểm tra nhé.": {
+    "src": "/audio/narration/e1366638063f9be4.mp3",
+    "durationMs": 6787
+  },
+  "2 khối tím và 3 khối vàng ghép lại thành 5 khối!": {
+    "src": "/audio/narration/39cee7380e9989d2.mp3",
+    "durationMs": 3699
+  },
+  "Một nhóm lớn, hai nhóm nhỏ.": {
+    "src": "/audio/narration/d88d4aacc7738ee6.mp3",
+    "durationMs": 2340
+  },
+  "Bấm Tách khối, rồi đếm nhóm ở bên trái.": {
+    "src": "/audio/narration/568e975afcc85477.mp3",
+    "durationMs": 3188
+  },
+  "5 tách ra 2, nhóm còn lại có mấy khối?": {
+    "src": "/audio/narration/856d4c4ff9411f4d.mp3",
+    "durationMs": 3474
+  },
+  "5 tách ra 2, nhóm còn lại có mấy khối? Bé chạm một đáp án, rồi bấm nút có dấu tích để kiểm tra nhé.": {
+    "src": "/audio/narration/033d9b22eeccf247.mp3",
+    "durationMs": 8280
+  },
+  "5 gồm 2 và 3. Hai nhóm vẫn có tổng cộng 5 khối.": {
+    "src": "/audio/narration/4d64022f689643c0.mp3",
+    "durationMs": 4322
+  },
+  "Có bao nhiêu cách tạo thành mười?": {
+    "src": "/audio/narration/b676f1d79da66080.mp3",
+    "durationMs": 2248
+  },
+  "Chọn một cách ghép, rồi chạm Ghép khối.": {
+    "src": "/audio/narration/9acffb175b2630b9.mp3",
+    "durationMs": 2818
+  },
+  "5 + 5 bằng bao nhiêu?": {
+    "src": "/audio/narration/09f5dc2f4798d64b.mp3",
+    "durationMs": 1976
+  },
+  "5 + 5 bằng bao nhiêu? Bé chạm một đáp án, rồi bấm nút có dấu tích để kiểm tra nhé.": {
+    "src": "/audio/narration/a0d5f9055bf71c27.mp3",
+    "durationMs": 6783
+  },
+  "Hai nhóm 5 ghép thành 10. Bé cũng có thể thử 6 + 4 hoặc 7 + 3!": {
+    "src": "/audio/narration/86f346fa4aba4316.mp3",
+    "durationMs": 5615
+  },
+  "Một người bạn mới đến chơi.": {
+    "src": "/audio/narration/1f348e6e44857107.mp3",
+    "durationMs": 2015
+  },
+  "Bấm Tiến 1 bước và nhìn vị trí của Mầm.": {
+    "src": "/audio/narration/ecdd61763a36a442.mp3",
+    "durationMs": 3014
+  },
+  "3 thêm 1 là bao nhiêu?": {
+    "src": "/audio/narration/de185e6071691e74.mp3",
+    "durationMs": 2026
+  },
+  "3 thêm 1 là bao nhiêu? Bé chạm một đáp án, rồi bấm nút có dấu tích để kiểm tra nhé.": {
+    "src": "/audio/narration/58801eb06544cf26.mp3",
+    "durationMs": 6833
+  },
+  "Từ số 3, bước thêm một bước đến số 4.": {
+    "src": "/audio/narration/455d0f17bc9fcd22.mp3",
+    "durationMs": 3310
+  },
+  "Cùng nhau xây một đội thật lớn.": {
+    "src": "/audio/narration/bbe5ebe34ddc9593.mp3",
+    "durationMs": 2203
+  },
+  "Hai nhóm có tổng cộng sáu ô nhỏ.": {
+    "src": "/audio/narration/c30870e5a8aeeba3.mp3",
+    "durationMs": 2515
+  },
+  "2 + 4 bằng bao nhiêu?": {
+    "src": "/audio/narration/3d905bcf1dee3c8e.mp3",
+    "durationMs": 2004
+  },
+  "2 + 4 bằng bao nhiêu? Bé chạm một đáp án, rồi bấm nút có dấu tích để kiểm tra nhé.": {
+    "src": "/audio/narration/606816980d8c1177.mp3",
+    "durationMs": 6811
+  },
+  "2 + 4 = 6. Thử thêm 1 + 5 và 3 + 3 nhé!": {
+    "src": "/audio/narration/fd4d7edf1df7f092.mp3",
+    "durationMs": 4744
+  },
+  "1 + 2 bằng bao nhiêu?": {
+    "src": "/audio/narration/28370f2544a88a50.mp3",
+    "durationMs": 2026
+  },
+  "Đếm một khối và hai khối bạn mới.": {
+    "src": "/audio/narration/b281caff6c78ab49.mp3",
+    "durationMs": 2582
+  },
+  "1 + 2 bằng bao nhiêu? Bé chạm một đáp án, rồi bấm nút có dấu tích để kiểm tra nhé.": {
+    "src": "/audio/narration/7d0b1d65b24908fb.mp3",
+    "durationMs": 6833
+  },
+  "Một khối và hai khối ghép thành ba!": {
+    "src": "/audio/narration/93e09da2c57e7117.mp3",
+    "durationMs": 2560
+  },
+  "3 + 5 bằng bao nhiêu?": {
+    "src": "/audio/narration/e790c188902c12f4.mp3",
+    "durationMs": 1992
+  },
+  "Ba và năm khối có tổng cộng tám khối.": {
+    "src": "/audio/narration/3660dd47776bcf3e.mp3",
+    "durationMs": 2909
+  },
+  "3 + 5 bằng bao nhiêu? Bé chạm một đáp án, rồi bấm nút có dấu tích để kiểm tra nhé.": {
+    "src": "/audio/narration/a8db64f995f595b9.mp3",
+    "durationMs": 6798
+  },
+  "3 + 5 = 8. Nhóm của bé đang lớn lên!": {
+    "src": "/audio/narration/40f3270d247d57e7.mp3",
+    "durationMs": 3687
+  },
+  "6 + 4 bằng bao nhiêu?": {
+    "src": "/audio/narration/b296f91d045d0813.mp3",
+    "durationMs": 2012
+  },
+  "Sáu khối thêm bốn khối sẽ đủ mười.": {
+    "src": "/audio/narration/cb880beb0ff5e07d.mp3",
+    "durationMs": 2639
+  },
+  "6 + 4 bằng bao nhiêu? Bé chạm một đáp án, rồi bấm nút có dấu tích để kiểm tra nhé.": {
+    "src": "/audio/narration/5d19d0d6fe310250.mp3",
+    "durationMs": 6819
+  },
+  "6 + 4 = 10. Bé đã ghép đủ mười người bạn!": {
+    "src": "/audio/narration/a3a311cd75c67abb.mp3",
+    "durationMs": 3800
+  },
+  "Một khối nhỏ đi dạo trong vườn.": {
+    "src": "/audio/narration/bae211d7cc641d77.mp3",
+    "durationMs": 2328
+  },
+  "Quan sát khối đi sang bên phải, đếm những khối còn lại.": {
+    "src": "/audio/narration/50087b283430b754.mp3",
+    "durationMs": 3842
+  },
+  "5 bớt 1 còn bao nhiêu?": {
+    "src": "/audio/narration/98d12fb533afced0.mp3",
+    "durationMs": 2011
+  },
+  "5 bớt 1 còn bao nhiêu? Bé chạm một đáp án, rồi bấm nút có dấu tích để kiểm tra nhé.": {
+    "src": "/audio/narration/7edf99c041acbeeb.mp3",
+    "durationMs": 6818
+  },
+  "Một khối đi dạo, bốn khối vẫn ở lại cùng bé.": {
+    "src": "/audio/narration/ccb3a49063952068.mp3",
+    "durationMs": 3501
+  },
+  "Tìm bạn cùng số và nối quy luật.": {
+    "src": "/audio/narration/3bf4062c8491fd5c.mp3",
+    "durationMs": 2369
+  },
+  "Nhóm sau nhiều hơn nhóm trước đúng một khối.": {
+    "src": "/audio/narration/b7a59e7781ae067e.mp3",
+    "durationMs": 2955
+  },
+  "Tách 6 khối thành hai nhóm 3 khối.": {
+    "src": "/audio/narration/0e46f3c1a0ef3105.mp3",
+    "durationMs": 2590
+  },
+  "Bấm Tách khối hoặc kéo nhóm ra hai bên.": {
+    "src": "/audio/narration/c4136a07d1da44d8.mp3",
+    "durationMs": 2816
+  },
+  "Chuyển khối để thử rồi đưa về 3 và 3 nhé!": {
+    "src": "/audio/narration/ba932365519cb73e.mp3",
+    "durationMs": 3292
+  },
+  "Hai bên cùng có ba khối nên chiếc cân nằm ngang.": {
+    "src": "/audio/narration/83eebd16f29ecfea.mp3",
+    "durationMs": 3211
+  },
+  "Số tiếp theo trong dãy 1, 2, 3 là gì?": {
+    "src": "/audio/narration/cacd6230d80acd07.mp3",
+    "durationMs": 3696
+  },
+  "Số tiếp theo trong dãy 1, 2, 3 là gì? Bé chạm một đáp án, rồi bấm nút có dấu tích để kiểm tra nhé.": {
+    "src": "/audio/narration/aa166325cbd68970.mp3",
+    "durationMs": 8514
+  },
+  "Mỗi nhóm tăng thêm 1 khối, nên sau 3 là 4.": {
+    "src": "/audio/narration/538228dd6c950c66.mp3",
+    "durationMs": 3675
+  },
+  "Bé đã sẵn sàng cho chuyến phiêu lưu!": {
+    "src": "/audio/narration/3f7161bcdf1ce00b.mp3",
+    "durationMs": 2561
+  },
+  "Chọn một nhóm rồi đặt vào ô trống. Đếm để đủ bảy khối.": {
+    "src": "/audio/narration/edb38a07c6210969.mp3",
+    "durationMs": 4234
+  },
+  "3 + ? = 7. Số nào còn thiếu?": {
+    "src": "/audio/narration/9094fd8431970ed3.mp3",
+    "durationMs": 2967
+  },
+  "3 + ? = 7. Số nào còn thiếu? Bé chạm một đáp án, rồi bấm nút có dấu tích để kiểm tra nhé.": {
+    "src": "/audio/narration/932b1bfd886e5412.mp3",
+    "durationMs": 7773
+  },
+  "3 khối có sẵn, thêm 4 khối nữa sẽ có đủ 7!": {
+    "src": "/audio/narration/142bd8e1d4cd3477.mp3",
+    "durationMs": 3849
+  },
+  "8 bớt 3 còn bao nhiêu?": {
+    "src": "/audio/narration/953a295b4d6e65bf.mp3",
+    "durationMs": 2021
+  },
+  "Tách ba khối ra khỏi tám khối rồi đếm phần còn lại.": {
+    "src": "/audio/narration/5d2d46ec473892ef.mp3",
+    "durationMs": 3542
+  },
+  "8 − 3 bằng bao nhiêu?": {
+    "src": "/audio/narration/7626dcf4e2466c82.mp3",
+    "durationMs": 1673
+  },
+  "8 − 3 bằng bao nhiêu? Bé chạm một đáp án, rồi bấm nút có dấu tích để kiểm tra nhé.": {
+    "src": "/audio/narration/cb4e4c4c7be1c5e3.mp3",
+    "durationMs": 6491
+  },
+  "8 tách ra 3, còn lại 5. Bé thật giỏi!": {
+    "src": "/audio/narration/155f79264537745d.mp3",
+    "durationMs": 3588
+  },
+  "Những khối nhỏ chơi trốn tìm cùng bé.": {
+    "src": "/audio/narration/49ae213cfb72be81.mp3",
+    "durationMs": 2619
+  },
+  "Nhìn cách các khối xếp thành hai hàng, mỗi hàng hai khối.": {
+    "src": "/audio/narration/02bba5464f923940.mp3",
+    "durationMs": 4209
+  },
+  "Bấm Mở hộp bí mật, nhìn thật kỹ rồi chọn số khối bé nhớ.": {
+    "src": "/audio/narration/18daa1083996d1cc.mp3",
+    "durationMs": 4418
+  },
+  "Trong hộp có bao nhiêu khối?": {
+    "src": "/audio/narration/3d08d7470438417d.mp3",
+    "durationMs": 2040
+  },
+  "Trong hộp có bao nhiêu khối? Bé chạm một đáp án, rồi bấm nút có dấu tích để kiểm tra nhé.": {
+    "src": "/audio/narration/b50c873efd551696.mp3",
+    "durationMs": 6846
+  },
+  "Hai hàng, mỗi hàng hai khối: có 4 khối tất cả.": {
+    "src": "/audio/narration/31642eeccbd7afa1.mp3",
+    "durationMs": 4152
+  },
+  "Mỗi toa tàu chở thêm hai người bạn.": {
+    "src": "/audio/narration/89681b420f5176c9.mp3",
+    "durationMs": 2456
+  },
+  "2, 4, 6… thêm hai nữa sẽ đến 8.": {
+    "src": "/audio/narration/2f5c277e6a92c104.mp3",
+    "durationMs": 3944
+  },
+  "Toa sau thêm hai khối. Bé tìm toa tiếp theo nhé!": {
+    "src": "/audio/narration/0f5e8bcc3380f38d.mp3",
+    "durationMs": 3739
+  },
+  "2, 4, 6, ? — số nào tiếp theo?": {
+    "src": "/audio/narration/2ebbb5064a22c9a8.mp3",
+    "durationMs": 3085
+  },
+  "2, 4, 6, ? — số nào tiếp theo? Bé chạm một đáp án, rồi bấm nút có dấu tích để kiểm tra nhé.": {
+    "src": "/audio/narration/3408d05258ae4ba8.mp3",
+    "durationMs": 7891
+  },
+  "Mỗi lần thêm 2: 2 → 4 → 6 → 8.": {
+    "src": "/audio/narration/45713b7d3ceb4699.mp3",
+    "durationMs": 2955
+  },
+  "Mỗi bạn tìm một người bạn nhảy cùng.": {
+    "src": "/audio/narration/921901465dc5f859.mp3",
+    "durationMs": 2572
+  },
+  "Nếu ghép hết thành các cặp thì đó là số chẵn.": {
+    "src": "/audio/narration/d7e7e75cf2a05bae.mp3",
+    "durationMs": 3277
+  },
+  "Ghép các khối thành từng cặp. Có ai đứng một mình không?": {
+    "src": "/audio/narration/b5303ec274c702d7.mp3",
+    "durationMs": 3907
+  },
+  "8 là số chẵn hay số lẻ?": {
+    "src": "/audio/narration/d7038412e3e7cb85.mp3",
+    "durationMs": 2265
+  },
+  "8 là số chẵn hay số lẻ? Bé chạm một đáp án, rồi bấm nút có dấu tích để kiểm tra nhé.": {
+    "src": "/audio/narration/b6b306039bf778f4.mp3",
+    "durationMs": 7083
+  },
+  "8 có 4 cặp, không ai đứng một mình nên 8 là số chẵn.": {
+    "src": "/audio/narration/c19b7ffd787920cb.mp3",
+    "durationMs": 4331
+  },
+  "Đếm những mầm nhỏ vượt qua số mười.": {
+    "src": "/audio/narration/bb97819d10084e73.mp3",
+    "durationMs": 2512
+  },
+  "Sau mười là mười một, rồi mười hai.": {
+    "src": "/audio/narration/e397371dc31aed0a.mp3",
+    "durationMs": 2825
+  },
+  "Chạm mỗi ô một lần và đếm đến mười hai nhé.": {
+    "src": "/audio/narration/4989b74d66324472.mp3",
+    "durationMs": 3292
+  },
+  "Khu vườn có tất cả bao nhiêu khối?": {
+    "src": "/audio/narration/d30e5ce559b0f4ec.mp3",
+    "durationMs": 2564
+  },
+  "Khu vườn có tất cả bao nhiêu khối? Bé chạm một đáp án, rồi bấm nút có dấu tích để kiểm tra nhé.": {
+    "src": "/audio/narration/9c97dff11156a165.mp3",
+    "durationMs": 7371
+  },
+  "Đếm thêm hai sau mười được mười hai: 10 + 2 = 12.": {
+    "src": "/audio/narration/4492ad9d28557968.mp3",
+    "durationMs": 4625
+  },
+  "Mỗi luống trồng hai mầm cây nhỏ.": {
+    "src": "/audio/narration/726bf1bf947b0a5e.mp3",
+    "durationMs": 2306
+  },
+  "Ba nhóm hai khối: 2 + 2 + 2.": {
+    "src": "/audio/narration/8fd1dd61448c61df.mp3",
+    "durationMs": 3327
+  },
+  "Trồng từng luống, mỗi luống hai khối. Sau đó đếm cả khu vườn!": {
+    "src": "/audio/narration/22cbc3a2b6b5813d.mp3",
+    "durationMs": 4675
+  },
+  "3 nhóm, mỗi nhóm 2 khối, có tất cả bao nhiêu?": {
+    "src": "/audio/narration/6d200416775464ab.mp3",
+    "durationMs": 4163
+  },
+  "3 nhóm, mỗi nhóm 2 khối, có tất cả bao nhiêu? Bé chạm một đáp án, rồi bấm nút có dấu tích để kiểm tra nhé.": {
+    "src": "/audio/narration/79823ed7775f7155.mp3",
+    "durationMs": 8969
+  },
+  "3 × 2 = 2 + 2 + 2 = 6 khối.": {
+    "src": "/audio/narration/6e18cecd192bea87.mp3",
+    "durationMs": 3710
+  },
+  "Giúp Mầm chia bánh thật công bằng.": {
+    "src": "/audio/narration/0de0ce56b84b369a.mp3",
+    "durationMs": 2259
+  },
+  "Chia mỗi bạn một chiếc, rồi chia thêm một vòng nữa.": {
+    "src": "/audio/narration/e26e6ea6ad801899.mp3",
+    "durationMs": 3524
+  },
+  "Chạm từng bạn để chia một chiếc bánh. Chia sao cho ba bạn bằng nhau nhé!": {
+    "src": "/audio/narration/572e82c02fb118a8.mp3",
+    "durationMs": 4929
+  },
+  "6 chiếc bánh chia đều cho 3 bạn. Mỗi bạn được mấy chiếc?": {
+    "src": "/audio/narration/aa1852ae601024de.mp3",
+    "durationMs": 4067
+  },
+  "6 chiếc bánh chia đều cho 3 bạn. Mỗi bạn được mấy chiếc? Bé chạm một đáp án, rồi bấm nút có dấu tích để kiểm tra nhé.": {
+    "src": "/audio/narration/acbc2cdba8e56e30.mp3",
+    "durationMs": 8873
+  },
+  "6 ÷ 3 = 2. Mỗi người hai chiếc, không ai nhiều hay ít hơn.": {
+    "src": "/audio/narration/38c75ff25c394806.mp3",
+    "durationMs": 5460
+  },
+  "Tìm mái nhà cho ngôi làng khối số.": {
+    "src": "/audio/narration/37c3c1e87fc8e60d.mp3",
+    "durationMs": 2520
+  },
+  "Đi theo đường viền và đếm ba cạnh của tam giác.": {
+    "src": "/audio/narration/649fd9311444a715.mp3",
+    "durationMs": 3259
+  },
+  "Tìm hình có ba cạnh để làm mái nhà nhé.": {
+    "src": "/audio/narration/78b7162eeb528b96.mp3",
+    "durationMs": 3077
+  },
+  "Hình tam giác có mấy cạnh?": {
+    "src": "/audio/narration/12733e4ed3f9acb7.mp3",
+    "durationMs": 1888
+  },
+  "Hình tam giác có mấy cạnh? Bé chạm một đáp án, rồi bấm nút có dấu tích để kiểm tra nhé.": {
+    "src": "/audio/narration/d7251e4399ad0a5e.mp3",
+    "durationMs": 6694
+  },
+  "Tam giác có 3 cạnh và 3 góc. Một chiếc mái nhà thật đẹp!": {
+    "src": "/audio/narration/d5199ca8229478eb.mp3",
+    "durationMs": 4203
+  },
+  "Nắng muốn qua suối thăm Mây.": {
+    "src": "/audio/narration/0621239abb994220.mp3",
+    "durationMs": 1883
+  },
+  "Cầu cần 6 khối, đã có 4. Hãy thêm 2 khối.": {
+    "src": "/audio/narration/4ca1a4a769d6dfae.mp3",
+    "durationMs": 4108
+  },
+  "Cầu còn thiếu hai ô. Đặt từng khối để Nắng sang bên kia nhé!": {
+    "src": "/audio/narration/e37a8710b8693732.mp3",
+    "durationMs": 4514
+  },
+  "Đã có 4 khối, cần 6 khối. Bé phải thêm mấy khối?": {
+    "src": "/audio/narration/7390effafdc145f5.mp3",
+    "durationMs": 4466
+  },
+  "Đã có 4 khối, cần 6 khối. Bé phải thêm mấy khối? Bé chạm một đáp án, rồi bấm nút có dấu tích để kiểm tra nhé.": {
+    "src": "/audio/narration/5e91de3b3744d390.mp3",
+    "durationMs": 9271
+  },
+  "4 + 2 = 6. Đủ hai khối còn thiếu, Nắng qua suối an toàn!": {
+    "src": "/audio/narration/bc1dbcdfaf27a4ec.mp3",
+    "durationMs": 5370
+  },
+  "Cùng Mây xem chiếc đồng hồ trong vườn.": {
+    "src": "/audio/narration/1dd3bf219830e913.mp3",
+    "durationMs": 2517
+  },
+  "Kim ngắn chỉ 3, kim dài chỉ 12: đó là 3 giờ.": {
+    "src": "/audio/narration/7f06b3e76087d122.mp3",
+    "durationMs": 4480
+  },
+  "Vặn kim ngắn đến số 3. Kim dài ở số 12 nhé!": {
+    "src": "/audio/narration/dcc0bb83f36ff16d.mp3",
+    "durationMs": 4256
+  },
+  "Kim ngắn ở 3, kim dài ở 12. Đồng hồ chỉ mấy giờ?": {
+    "src": "/audio/narration/0edda0a68f180d6e.mp3",
+    "durationMs": 4689
+  },
+  "Kim ngắn ở 3, kim dài ở 12. Đồng hồ chỉ mấy giờ? Bé chạm một đáp án, rồi bấm nút có dấu tích để kiểm tra nhé.": {
+    "src": "/audio/narration/5d3835d653e470bf.mp3",
+    "durationMs": 9495
+  },
+  "Đúng 3 giờ! Kim dài ở 12 nên chưa thêm phút nào.": {
+    "src": "/audio/narration/c81e7d9688f8b76d.mp3",
+    "durationMs": 4242
+  },
+  "3 giờ": {
+    "src": "/audio/narration/cefc3cb20bde0913.mp3",
+    "durationMs": 866
+  },
+  "6 giờ": {
+    "src": "/audio/narration/80a65f87be796a88.mp3",
+    "durationMs": 897
+  },
+  "9 giờ": {
+    "src": "/audio/narration/dd82d544dea857b6.mp3",
+    "durationMs": 866
+  },
+  "Hai đội, mỗi đội bốn người bạn.": {
+    "src": "/audio/narration/eac0331d1a2884e6.mp3",
+    "durationMs": 2422
+  },
+  "Bốn khối ở nhóm thứ nhất và bốn khối ở nhóm thứ hai.": {
+    "src": "/audio/narration/b36ec8fe408e10a8.mp3",
+    "durationMs": 3896
+  },
+  "Tạo hai nhóm bốn khối giống nhau. Bé thấy số khối tăng thế nào?": {
+    "src": "/audio/narration/642b9ef45e4dfeee.mp3",
+    "durationMs": 4675
+  },
+  "Gấp đôi 4 được bao nhiêu?": {
+    "src": "/audio/narration/a9db8b28ab310cda.mp3",
+    "durationMs": 2015
+  },
+  "Gấp đôi 4 được bao nhiêu? Bé chạm một đáp án, rồi bấm nút có dấu tích để kiểm tra nhé.": {
+    "src": "/audio/narration/79638b3fa463fdb1.mp3",
+    "durationMs": 6821
+  },
+  "Gấp đôi 4 là 4 + 4 = 8. Chia 8 thành hai nhóm đều nhau, mỗi nhóm là 4.": {
+    "src": "/audio/narration/feeeee262359fbd4.mp3",
+    "durationMs": 6578
+  }
+}

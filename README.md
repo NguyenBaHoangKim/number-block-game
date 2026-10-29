@@ -1,5 +1,7 @@
 # Đảo Khối Số
 
+Đọc nhanh toàn bộ dự án và hướng dẫn deploy Vercel: [README_PROJECT_HANDOFF.md](README_PROJECT_HANDOFF.md).
+
 Web học toán tiếng Việt bằng nhân vật khối số nguyên bản. React + TypeScript + Vite, CSS thuần và SVG. Chỉ frontend; không backend, tài khoản hay API bên ngoài.
 
 ## Chạy dự án
@@ -120,5 +122,7 @@ Responsive được kiểm tra từ 360 đến 1440px. Có focus bàn phím, dia
 Kết quả mỗi lần chạy ở `playwright-report/`; mở bằng `npx playwright show-report`. Kiểm tra âm thanh tự động xác nhận luồng tải/phát và vòng đời; chưa đánh giá bằng tai trên mọi thiết bị, chưa kiểm thử khóa màn hình trên thiết bị iOS/Android thật.
 
 Ảnh giao diện ở `docs/screenshots/`: trang chủ, sân chơi, lời chào và cầu tình bạn.
+
 # number-block-game
+
 # number-block-game
