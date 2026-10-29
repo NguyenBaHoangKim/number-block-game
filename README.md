@@ -121,3 +121,4 @@ Kết quả mỗi lần chạy ở `playwright-report/`; mở bằng `npx playwr
 
 Ảnh giao diện ở `docs/screenshots/`: trang chủ, sân chơi, lời chào và cầu tình bạn.
 # number-block-game
+# number-block-game
