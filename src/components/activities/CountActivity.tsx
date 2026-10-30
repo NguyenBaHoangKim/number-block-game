@@ -1,3 +1,4 @@
+import { countObjective } from "../../features/exercises/legacyObjectives";
 import { useEffect, useState } from "react";
 import type { WorkspaceProps } from "./types";
 import { playEffect } from "../../services/audioService";
@@ -17,15 +18,27 @@ export function CountActivity({
   const reset = () => {
     stopCounting();
     setCounted(new Set());
+    onReady?.(false);
     playEffect("pop");
   };
 
-  const countTotal = values.reduce((sum, n) => sum + n, 0);
+  const { groups: targetGroups, total: countTotal } = countObjective(step);
+  const targeted = targetGroups.length !== values.length;
+  const targetName =
+    targeted && targetGroups.length === 1
+      ? (numberCharacters.find((c) => c.value === values[targetGroups[0]])
+          ?.name ?? `nhóm ${values[targetGroups[0]]}`)
+      : null;
   return (
     <div className="count-workspace">
       <div className="count-groups">
         {values.map((value, group) => (
-          <div className="count-group" key={group}>
+          <div
+            className={`count-group ${targeted && targetGroups.includes(group) ? "count-target-group" : ""}`}
+            data-count-group={group}
+            data-count-target={targetGroups.includes(group)}
+            key={group}
+          >
             <span className="number-label">
               {step.characterLabels === "name"
                 ? numberCharacters.find((c) => c.value === value)?.name
@@ -45,8 +58,10 @@ export function CountActivity({
                     className={`count-block ${counted.has(id) ? "counted" : ""}`}
                     aria-label={`Đếm nhóm ${value}, khối ${i + 1}`}
                     aria-pressed={counted.has(id)}
+                    disabled={!targetGroups.includes(group)}
                     onClick={() => {
-                      if (counted.has(id)) return;
+                      if (!targetGroups.includes(group) || counted.has(id))
+                        return;
                       const next = new Set(counted).add(id);
                       setCounted(next);
                       const groupCount = [...next].filter((id) =>
@@ -75,8 +90,10 @@ export function CountActivity({
       <div className="workspace-caption">
         <Hand size={18} />
         {counted.size === countTotal
-          ? "Đã đếm đủ tất cả các bạn!"
-          : `Chạm từng khối để đếm · ${counted.size} / ${countTotal}`}
+          ? targetName
+            ? `Đã đếm đủ ${countTotal} khối của bạn ${targetName}!`
+            : "Đã đếm đủ tất cả các bạn!"
+          : `${targetName ? `Chạm khối của bạn ${targetName}` : "Chạm từng khối để đếm"} · ${counted.size} / ${countTotal}`}
         <button className="text-button" onClick={reset} aria-label="Đếm lại">
           <RotateCcw size={17} />
         </button>

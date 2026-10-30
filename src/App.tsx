@@ -1,4 +1,12 @@
-import { useCallback, useEffect, useRef, useState } from "react";
+import { version } from "../package.json";
+import {
+  lazy,
+  Suspense,
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 import {
   BookOpen,
   ChevronRight,
@@ -43,8 +51,20 @@ import {
   setBackgroundNarrationEnabled,
 } from "./services/narrationService";
 import type { Progress } from "./types/lesson";
+import {
+  totalLearningStars,
+  resetLearningProgress,
+} from "./services/learningStorage";
+const ExpansionApp = lazy(() => import("./features/worlds/ExpansionApp"));
 const getRoute = () => window.location.hash.slice(1) || "home";
 export default function App() {
+  const [learningStars, setLearningStars] = useState(totalLearningStars);
+  useEffect(() => {
+    const refresh = () => setLearningStars(totalLearningStars());
+    window.addEventListener("number-block-learning-changed", refresh);
+    return () =>
+      window.removeEventListener("number-block-learning-changed", refresh);
+  }, []);
   const [route, setRoute] = useState(getRoute);
   const [progress, setProgress] = useState(loadProgress);
   const [settingsOpen, setSettingsOpen] = useState(false);
@@ -111,7 +131,10 @@ export default function App() {
   }
   useEffect(() => {
     setAudioMood(
-      route.startsWith("play/")
+      route.startsWith("play/") ||
+        route.startsWith("learn/") ||
+        route.startsWith("practice") ||
+        route === "daily"
         ? "lesson"
         : route === "challenge"
           ? "challenge"
@@ -121,11 +144,26 @@ export default function App() {
     );
   }, [route]);
   const saveChallenge = useCallback(
-    (score: number) =>
+    (score: number, length = 5) =>
       setProgress((p) => ({
         ...p,
         practice: {
-          quickBest: Math.max(p.practice.quickBest, score),
+          ...p.practice,
+          quickBest:
+            length === 5
+              ? Math.max(p.practice.quickBest, score)
+              : p.practice.quickBest,
+          ...(length !== 5
+            ? {
+                bestByLength: {
+                  ...p.practice.bestByLength,
+                  [length]: Math.max(
+                    p.practice.bestByLength?.[length] ?? 0,
+                    score,
+                  ),
+                },
+              }
+            : {}),
           rounds: p.practice.rounds + 1,
         },
       })),
@@ -135,7 +173,9 @@ export default function App() {
     progress.settings.effects ||
     progress.settings.music ||
     progress.settings.voice;
-  const stars = Object.values(progress.stars).reduce((sum, n) => sum + n, 0);
+  const stars =
+    Object.values(progress.stars).reduce((sum, n) => sum + n, 0) +
+    learningStars;
   const lesson = lessons.find((l) => `play/${l.id}` === route);
   return (
     <div
@@ -244,7 +284,21 @@ export default function App() {
         </div>
       </header>
       <div id="main-content" tabIndex={-1}>
-        {route === "home" ? (
+        {route === "worlds" ||
+        route.startsWith("world/") ||
+        route.startsWith("learn/") ||
+        route.startsWith("practice") ||
+        ["daily", "notebook", "collection"].includes(route) ? (
+          <Suspense
+            fallback={
+              <main className="page empty-state">
+                <p>Đang mở hòn đảo…</p>
+              </main>
+            }
+          >
+            <ExpansionApp route={route} navigate={navigate} />
+          </Suspense>
+        ) : route === "home" ? (
           <HomePage
             progress={progress}
             onMap={() => navigate("map")}
@@ -270,6 +324,7 @@ export default function App() {
           <QuickChallengePage
             onNavigate={navigate}
             best={progress.practice.quickBest}
+            bestByLength={progress.practice.bestByLength}
             onComplete={saveChallenge}
           />
         ) : lesson ? (
@@ -307,6 +362,7 @@ export default function App() {
         <span>
           Được làm bằng <Heart size={13} /> cho những trí tò mò nhỏ.
         </span>
+        <small className="footer-version">Version {version}</small>
       </footer>
       {settingsOpen && (
         <SettingsDialog
@@ -314,6 +370,7 @@ export default function App() {
           onClose={() => setSettingsOpen(false)}
           onChange={changeSettings}
           onReset={() => {
+            resetLearningProgress();
             setProgress((p) => ({ ...emptyProgress(), settings: p.settings }));
             setReplay((n) => n + 1);
             navigate("home");

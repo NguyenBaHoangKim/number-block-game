@@ -58,6 +58,7 @@ export function TransformActivity({
   }
   const reset = () => {
     setTransformed(false);
+    onReady?.(false);
     playEffect("pop");
   };
   const cols = columnsFor(total);
@@ -146,22 +147,25 @@ export function TransformActivity({
           <RotateCcw size={17} /> Làm lại
         </button>
       </div>
-      {isSplit && step.type !== "quiz" && (
-        <label className="split-control">
-          Tách ra {b} khối
-          <input
-            aria-label="Số khối tách ra"
-            type="range"
-            min="1"
-            max={a - 1}
-            value={b}
-            onChange={(e) => {
-              setPair([a, Number(e.target.value)]);
-              setTransformed(false);
-            }}
-          />
-        </label>
-      )}
+      {isSplit &&
+        step.type !== "quiz" &&
+        step.config?.splitTarget === undefined && (
+          <label className="split-control">
+            Tách ra {b} khối
+            <input
+              aria-label="Số khối tách ra"
+              type="range"
+              min="1"
+              max={a - 1}
+              value={b}
+              onChange={(e) => {
+                setPair([a, Number(e.target.value)]);
+                setTransformed(false);
+                onReady?.(false);
+              }}
+            />
+          </label>
+        )}
       <p className="workspace-caption">
         {transformed
           ? isSplit
@@ -178,6 +182,7 @@ export function TransformActivity({
               onClick={() => {
                 setPair([first, second]);
                 setTransformed(false);
+                onReady?.(false);
               }}
             >
               {first} + {second}

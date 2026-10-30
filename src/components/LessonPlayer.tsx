@@ -9,6 +9,7 @@ import {
   Trophy,
   X,
 } from "lucide-react";
+import { validateLegacyQuestion } from "../features/exercises/legacyValidators";
 import type { Lesson } from "../types/lesson";
 import { BlockWorkspace } from "./BlockWorkspace";
 import { NumberCharacter } from "./NumberCharacter";
@@ -45,7 +46,10 @@ export function LessonPlayer({
   }, [done]);
   const step = lesson.steps[index];
   const markStepReady = useCallback(
-    () => setReady((r) => (r[step.id] ? r : { ...r, [step.id]: true })),
+    (isReady = true) =>
+      setReady((r) =>
+        r[step.id] === isReady ? r : { ...r, [step.id]: isReady },
+      ),
     [step.id],
   );
   const narrationText = done
@@ -53,7 +57,7 @@ export function LessonPlayer({
     : step.activity === "meet"
       ? null
       : step.question
-        ? `${step.question.prompt} ${voiceCopy.quizHelp}`
+        ? step.question.prompt
         : step.instruction;
   useNarration(narrationText);
   const stars = mistakes === 0 ? appConfig.maxStars : mistakes <= 2 ? 2 : 1;
@@ -65,7 +69,9 @@ export function LessonPlayer({
     playEffect("pop");
   }
   function check() {
-    if (answers[step.id] === step.question?.answer) {
+    const result = validateLegacyQuestion(step, answers[step.id]);
+    if (result.status === "incomplete" || passed[step.id]) return;
+    if (result.status === "correct") {
       setFeedback("correct");
       setPassed({ ...passed, [step.id]: true });
       playEffect("correct");

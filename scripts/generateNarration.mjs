@@ -1,50 +1,24 @@
-import { mkdir, writeFile, access } from "node:fs/promises";
+import {
+  mkdir,
+  writeFile,
+  access,
+  readdir,
+  unlink,
+  rename,
+} from "node:fs/promises";
 import { createHash } from "node:crypto";
 import { execFile } from "node:child_process";
 import { promisify } from "node:util";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
-import {
-  lessons,
-  voiceCopy,
-  spokenNumbers,
-  spokenSymbols,
-  shapeChoices,
-  numberCharacters,
-} from "../src/data/mockData.ts";
+import { getNarrationTexts } from "../src/data/narrationPlan.ts";
 const exec = promisify(execFile);
 const output = "public/audio/narration";
 await mkdir(output, { recursive: true });
-const normalize = (text) => text.replace(/\s+/g, " ").trim();
-const texts = new Set([
-  ...Object.values(voiceCopy),
-  ...spokenNumbers,
-  ...Object.values(spokenSymbols),
-  ...shapeChoices.map((s) => s.label),
-  ...numberCharacters.map((c) => c.name),
-]);
-for (const lesson of lessons)
-  for (const step of lesson.steps) {
-    texts.add(step.instruction);
-    texts.add(step.hint);
-    if (step.question) {
-      texts.add(step.question.prompt);
-      texts.add(`${step.question.prompt} ${voiceCopy.quizHelp}`);
-      texts.add(step.question.explanation);
-      for (const option of step.question.options)
-        if (typeof option === "string")
-          texts.add(spokenSymbols[option] ?? option);
-    }
-    if (step.introduction) {
-      texts.add(step.introduction.opening);
-      texts.add(step.introduction.closing);
-      for (const cue of step.introduction.cues) texts.add(cue.greeting);
-    }
-  }
+const texts = getNarrationTexts();
 const manifest = {};
 let generated = 0;
-for (const raw of texts) {
-  const text = normalize(raw);
+for (const text of texts) {
   if (!text) continue;
   const hash = createHash("sha256").update(text).digest("hex").slice(0, 16);
   const destination = join(output, `${hash}.mp3`);
@@ -101,9 +75,23 @@ for (const raw of texts) {
   };
 }
 await writeFile(
-  "src/data/narrationManifest.json",
+  "src/data/narrationManifest.json.tmp",
   JSON.stringify(manifest, null, 2) + "\n",
 );
+await rename(
+  "src/data/narrationManifest.json.tmp",
+  "src/data/narrationManifest.json",
+);
+const referenced = new Set(
+  Object.values(manifest).map((clip) => clip.src.split("/").at(-1)),
+);
+let removed = 0;
+for (const file of await readdir(output)) {
+  if (/^[a-f0-9]{16}\.mp3$/.test(file) && !referenced.has(file)) {
+    await unlink(join(output, file));
+    removed++;
+  }
+}
 console.log(
-  `Narration ready: ${Object.keys(manifest).length} clips (${generated} generated). Voice: Linh, Vietnamese, synthesized locally.`,
+  `Narration ready: ${Object.keys(manifest).length} clips (${generated} generated, ${removed} unused removed). Voice: Linh, Vietnamese, synthesized locally.`,
 );

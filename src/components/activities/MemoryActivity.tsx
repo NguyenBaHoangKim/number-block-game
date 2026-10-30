@@ -41,6 +41,7 @@ export function MemoryActivity({ step, onReady }: WorkspaceProps) {
         disabled={phase === "visible"}
         onClick={() => {
           setPhase("visible");
+          onReady?.(false);
           playEffect("reveal");
         }}
       >

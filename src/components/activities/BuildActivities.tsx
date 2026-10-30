@@ -47,7 +47,7 @@ export function ShapesActivity({ step, onReady }: WorkspaceProps) {
             onClick={() => {
               setSelected(shape.kind);
               playEffect(shape.kind === target ? "build" : "tryAgain");
-              if (shape.kind === target) onReady?.();
+              onReady?.(shape.kind === target);
             }}
           >
             <ShapeArt kind={shape.kind} />
@@ -112,7 +112,13 @@ export function BridgeActivity({ step, onReady }: WorkspaceProps) {
           <Hammer size={18} />
           {complete ? "Nắng qua cầu rồi!" : "Đặt một khối vào cầu"}
         </button>
-        <button className="text-button" onClick={() => setBuilt(0)}>
+        <button
+          className="text-button"
+          onClick={() => {
+            setBuilt(0);
+            onReady?.(false);
+          }}
+        >
           <RotateCcw size={17} />
           Xây lại
         </button>

@@ -38,6 +38,14 @@ export function loadProgress(): Progress {
         result.settings.volume = Math.max(0, Math.min(1, p.settings.volume));
     }
     if (p.practice && typeof p.practice === "object") {
+      for (const size of [10, 15]) {
+        const best = p.practice.bestByLength?.[size];
+        if (Number.isInteger(best) && best! >= 0 && best! <= size)
+          result.practice.bestByLength = {
+            ...result.practice.bestByLength,
+            [size]: best!,
+          };
+      }
       if (
         Number.isInteger(p.practice.quickBest) &&
         p.practice.quickBest >= 0 &&

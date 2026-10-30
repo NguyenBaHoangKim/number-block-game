@@ -740,6 +740,7 @@ a {
   padding: 27px 0 32px;
 }
 .site-footer {
+  flex-wrap: wrap;
   border-top: 1px solid #e4e8dd;
   max-width: 100%;
   display: flex;
@@ -3898,4 +3899,87 @@ a {
     font-size: 12px;
     padding: 5px 12px;
   }
+}
+.new-world-banner {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 25px;
+  background: linear-gradient(105deg, #e7f0df, #f8efd9);
+  border: 1px solid #dce5cc;
+  border-radius: 20px;
+  margin-top: 28px;
+}
+.new-world-banner > span {
+  width: 48px;
+  height: 48px;
+  background: #dce9cd;
+  color: #83a361;
+  border-radius: 15px;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+.new-world-banner h2 {
+  font-size: 23px;
+  margin: 7px 0;
+}
+.new-world-banner p:last-child {
+  font-size: 12px;
+  color: #80926e;
+}
+.new-world-banner > .button {
+  margin-left: auto;
+  white-space: nowrap;
+}
+@media (max-width: 760px) {
+  .new-world-banner {
+    padding: 22px;
+    flex-wrap: wrap;
+    gap: 14px;
+  }
+  .new-world-banner > div {
+    flex: 1;
+    min-width: 180px;
+  }
+  .new-world-banner h2 {
+    font-size: 20px;
+  }
+  .new-world-banner p:last-child {
+    font-size: 11px;
+  }
+  .new-world-banner > .button {
+    width: 100%;
+    font-size: 12px;
+    margin-top: 6px;
+  }
+  .new-world-banner > span {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+/* A visible character can provide context without being part of the counting goal. */
+.count-target-group {
+  outline: 3px solid #d8ae49;
+  outline-offset: 10px;
+  border-radius: 16px;
+}
+.count-group[data-count-target="false"] .number-label {
+  opacity: 0.65;
+}
+.count-block:disabled {
+  opacity: 0.58;
+  cursor: default;
+}
+.count-target-group .number-label {
+  color: #8c6a25;
+}
+
+.footer-version {
+  flex: 0 0 100%;
+  width: 100%;
+  text-align: center;
+  font-size: 11px;
+  color: #768871;
 }

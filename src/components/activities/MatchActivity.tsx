@@ -4,7 +4,6 @@ import { playEffect } from "../../services/audioService";
 import { NumberCharacter } from "../NumberCharacter";
 export function MatchActivity({ step, onReady }: WorkspaceProps) {
   const { values } = step;
-  const ready = () => onReady?.();
   const [selected, setSelected] = useState<number | null>(null);
   const [placed, setPlaced] = useState(false);
 
@@ -13,7 +12,7 @@ export function MatchActivity({ step, onReady }: WorkspaceProps) {
     setSelected(n);
     setPlaced(true);
     playEffect(n === target ? "correct" : "tryAgain");
-    if (n === target) ready();
+    onReady?.(n === target);
   };
   return (
     <div className="match-workspace">

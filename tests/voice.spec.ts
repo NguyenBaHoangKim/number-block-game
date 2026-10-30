@@ -1,11 +1,13 @@
+import { exerciseVoicePrompts } from "../src/data/expansion/voicePrompts";
 import { expect, test } from "@playwright/test";
-import { existsSync, statSync, readFileSync } from "node:fs";
+import { existsSync, statSync, readFileSync, readdirSync } from "node:fs";
 import {
   lessons,
   voiceCopy,
   spokenNumbers,
   appConfig,
   numberCharacters,
+  narrationConfig,
 } from "../src/data/mockData";
 const manifest = JSON.parse(
   readFileSync("src/data/narrationManifest.json", "utf8"),
@@ -38,10 +40,18 @@ const voiceStatus = async (page: import("@playwright/test").Page) =>
     };
   });
 test("every spoken lesson line, transition and count has a real bundled clip", () => {
-  const texts: string[] = [...Object.values(voiceCopy), ...spokenNumbers];
+  const texts: string[] = [
+    ...Object.entries(voiceCopy)
+      .filter(([key]) => key !== "quizHelp")
+      .map(([, text]) => text),
+    ...Object.values(exerciseVoicePrompts),
+    ...spokenNumbers,
+  ];
   for (const l of lessons)
     for (const step of l.steps) {
-      texts.push(step.instruction, step.hint);
+      if (step.type !== "quiz" && step.activity !== "meet")
+        texts.push(step.instruction);
+      texts.push(step.hint);
       if (step.introduction)
         texts.push(
           step.introduction.opening,
@@ -49,10 +59,7 @@ test("every spoken lesson line, transition and count has a real bundled clip", (
           ...step.introduction.cues.map((c) => c.greeting),
         );
       if (step.question)
-        texts.push(
-          `${step.question.prompt} ${voiceCopy.quizHelp}`,
-          step.question.explanation,
-        );
+        texts.push(step.question.prompt, step.question.explanation);
     }
   for (const text of texts) {
     const clip = clips[text.replace(/\s+/g, " ").trim()];
@@ -88,7 +95,8 @@ test("new friends greet and their transition sentence actually plays an MP3", as
     await page.clock.runFor(
       Math.max(
         intro.cueDurationMs,
-        clips[intro.cues[i].greeting].durationMs + 350,
+        clips[intro.cues[i].greeting].durationMs +
+          narrationConfig.greetingPauseMs,
       ) + 20,
     );
     if (i + 1 < intro.cues.length)
@@ -245,7 +253,8 @@ test("character questions offer character names and quantity questions offer qua
   await page.getByRole("button", { name: "Gọi Lá và Đào ra chơi!" }).click();
   await page.clock.runFor(4800);
   await page.getByRole("button", { name: "Tiếp tục", exact: true }).click();
-  for (const b of await page.locator(".count-block").all()) await b.click();
+  for (const b of await page.locator(".count-block:not(:disabled)").all())
+    await b.click();
   await page.getByRole("button", { name: "Tiếp tục", exact: true }).click();
   await expect(page.locator(".quiz-option > span")).toHaveText([
     "Mây",
@@ -355,4 +364,21 @@ test("canonical question answers agree with the visual mathematics", () => {
           `${lesson.title}: ${step.question.prompt}`,
         ).toBe(expected);
     }
+});
+
+test("audio budget is reduced without orphan files or faster playback", () => {
+  const files = readdirSync("public/audio/narration").filter((f) =>
+    f.endsWith(".mp3"),
+  );
+  const referenced = new Set(
+    Object.values(clips).map((c) => c.src.split("/").at(-1)),
+  );
+  expect(files.length).toBeLessThanOrEqual(
+    Math.ceil(221 * 0.8) + Object.keys(exerciseVoicePrompts).length,
+  );
+  expect(files.length).toBe(referenced.size);
+  expect(files.every((f) => referenced.has(f))).toBe(true);
+  expect(
+    Object.values(clips).reduce((sum, c) => sum + c.durationMs, 0),
+  ).toBeLessThan(757470 * 0.8);
 });

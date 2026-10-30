@@ -213,6 +213,20 @@ export function HomePage({
           {homeCopy.tips[2]}
         </span>
       </section>
+      <section className="new-world-banner">
+        <span>
+          <Sparkles size={26} />
+        </span>
+        <div>
+          <p className="eyebrow">HÀNH TRÌNH MỚI</p>
+          <h2>8 thế giới, 80 bài học đang chờ bé!</h2>
+          <p>800 tình huống · Nhiều cách chơi · Khám phá theo nhịp riêng</p>
+        </div>
+        <button className="button primary" onClick={() => onNavigate("worlds")}>
+          Khám phá thế giới
+          <ArrowRight size={18} />
+        </button>
+      </section>
       <PlayModes onNavigate={onNavigate} />
       <section className="journey-section">
         <div className="section-heading">

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { RotateCcw, House } from "lucide-react";
+import { RotateCcw, House, Undo2, Redo2 } from "lucide-react";
 import { useNarration } from "./NarrationButton";
 import { playgroundConfig, voiceCopy } from "../data/mockData";
 import { BlockWorkspace } from "./BlockWorkspace";
@@ -21,6 +21,16 @@ export function PlaygroundPage({
   const [tiles, setTiles] = useState<(string | null)[]>(
     Array(playgroundConfig.cols * playgroundConfig.rows).fill(null),
   );
+  const [past, setPast] = useState<(string | null)[][]>([]),
+    [future, setFuture] = useState<(string | null)[][]>([]);
+  const [moving, setMoving] = useState(false),
+    [selectedCell, setSelectedCell] = useState<number | null>(null);
+  function commit(next: (string | null)[]) {
+    setPast((h) => [...h.slice(-29), tiles]);
+    setFuture([]);
+    setTiles(next);
+    setSelectedCell(null);
+  }
   const isSplit = tab === "split";
   const first = isSplit ? Math.max(2, a) : a;
   const second = isSplit ? Math.min(b, first - 1) : b;
@@ -34,7 +44,7 @@ export function PlaygroundPage({
     hint: "",
   };
   function paint(index: number, nextColor: string | null) {
-    setTiles((t) => t.map((c, i) => (i === index ? nextColor : c)));
+    commit(tiles.map((c, i) => (i === index ? nextColor : c)));
     playEffect("place");
   }
   function drop(index: number, data: string) {
@@ -42,11 +52,9 @@ export function PlaygroundPage({
     if (match) {
       const source = Number(match[1]);
       if (source >= tiles.length || source === index) return;
-      setTiles((t) => {
-        const next = [...t];
-        [next[index], next[source]] = [next[source], next[index]];
-        return next;
-      });
+      const next = [...tiles];
+      [next[index], next[source]] = [next[source], next[index]];
+      commit(next);
       playEffect("place");
     } else if (playgroundConfig.colors.includes(data)) paint(index, data);
   }
@@ -124,8 +132,44 @@ export function PlaygroundPage({
               <div className="actions">
                 <button
                   className="text-button"
+                  disabled={!past.length}
                   onClick={() => {
-                    setTiles(
+                    setFuture((h) => [tiles, ...h]);
+                    setTiles(past.at(-1)!);
+                    setPast((h) => h.slice(0, -1));
+                    setSelectedCell(null);
+                  }}
+                >
+                  <Undo2 size={17} />
+                  Hoàn tác
+                </button>
+                <button
+                  className="text-button"
+                  disabled={!future.length}
+                  onClick={() => {
+                    setPast((h) => [...h, tiles]);
+                    setTiles(future[0]);
+                    setFuture((h) => h.slice(1));
+                    setSelectedCell(null);
+                  }}
+                >
+                  <Redo2 size={17} />
+                  Làm lại bước
+                </button>
+                <button
+                  className="text-button"
+                  aria-pressed={moving}
+                  onClick={() => {
+                    setMoving((v) => !v);
+                    setSelectedCell(null);
+                  }}
+                >
+                  {moving ? "Đang di chuyển" : "Di chuyển khối"}
+                </button>
+                <button
+                  className="text-button"
+                  onClick={() => {
+                    commit(
                       tiles.map((_, i) =>
                         playgroundConfig.house.includes(i) ? color : null,
                       ),
@@ -139,7 +183,7 @@ export function PlaygroundPage({
                 <button
                   className="text-button"
                   onClick={() => {
-                    setTiles(tiles.map(() => null));
+                    commit(tiles.map(() => null));
                     playEffect("split");
                   }}
                 >
@@ -157,7 +201,7 @@ export function PlaygroundPage({
               {tiles.map((c, i) => (
                 <button
                   key={i}
-                  className={`construction-cell ${c ? "occupied" : ""}`}
+                  className={`construction-cell ${c ? "occupied" : ""} ${selectedCell === i ? "selected" : ""}`}
                   aria-label={`Ô xây dựng ${i + 1}${c ? ", có khối" : ""}`}
                   draggable={Boolean(c)}
                   onDragStart={(e) =>
@@ -168,7 +212,12 @@ export function PlaygroundPage({
                     e.preventDefault();
                     drop(i, e.dataTransfer.getData("text/plain"));
                   }}
-                  onClick={() => paint(i, c ? null : color)}
+                  onClick={() => {
+                    if (!moving) paint(i, c ? null : color);
+                    else if (selectedCell === null && c) setSelectedCell(i);
+                    else if (selectedCell !== null)
+                      drop(i, `cell:${selectedCell}`);
+                  }}
                 >
                   {c ? (
                     <svg viewBox="0 0 60 64">
@@ -196,8 +245,9 @@ export function PlaygroundPage({
               {tileCount > 0 && <b>= {tileCount}</b>}
             </div>
             <p className="small center">
-              Chọn màu rồi chạm ô để thêm/bớt. Kéo khối từ ô này sang ô khác để
-              xếp lại.
+              {moving
+                ? "Chạm khối cần chuyển, rồi chạm ô muốn đặt."
+                : "Chọn màu rồi chạm ô để thêm/bớt. Có thể kéo khối hoặc bật Di chuyển khối."}
             </p>
           </>
         )}

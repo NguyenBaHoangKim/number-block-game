@@ -72,9 +72,16 @@ async function playActivity(page: Page, activity: string, step?: LessonStep) {
   if (activity === "match")
     await page.getByRole("button", { name: "Chọn nhóm 5 khối" }).click();
   else if (activity === "count") {
-    for (const b of await page.locator(".count-block").all()) await b.click();
+    for (const b of await page.locator(".count-block:not(:disabled)").all())
+      await b.click();
   } else if (activity === "compare")
-    await page.getByRole("button", { name: "Thử 2 và 2" }).click();
+    await page
+      .getByRole("button", {
+        name: step?.config?.balanceTarget
+          ? `Về ${step.config.balanceTarget[0]} và ${step.config.balanceTarget[1]}`
+          : "Thử 2 và 2",
+      })
+      .click();
   else if (activity === "numberline")
     await page.getByRole("button", { name: "Tiến 1 bước" }).click();
   else if (activity === "pattern")

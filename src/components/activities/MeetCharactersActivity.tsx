@@ -2,7 +2,7 @@ import { useEffect, useState, useSyncExternalStore } from "react";
 import { Hand, RotateCcw, Sparkles } from "lucide-react";
 import type { WorkspaceProps } from "./types";
 import { NumberCharacter, colorFor } from "../NumberCharacter";
-import { numberCharacters } from "../../data/mockData";
+import { numberCharacters, narrationConfig } from "../../data/mockData";
 import { NarrationButton, useNarration } from "../NarrationButton";
 import {
   getNarrationSnapshot,
@@ -42,7 +42,8 @@ export function MeetCharactersActivity({ step, onReady }: WorkspaceProps) {
       () => setPhase((p) => p + 1),
       Math.max(
         introduction.cueDurationMs,
-        narrationDuration(introduction.cues[phase].greeting) + 350,
+        narrationDuration(introduction.cues[phase].greeting) +
+          narrationConfig.greetingPauseMs,
       ),
     );
     return () => window.clearTimeout(timer);
@@ -156,6 +157,17 @@ export function MeetCharactersActivity({ step, onReady }: WorkspaceProps) {
       </div>
       {narrationText && <NarrationButton text={narrationText} />}
       <div className="meet-controls">
+        {!finished && (
+          <button
+            className="text-button"
+            onClick={() => {
+              setGreeted(null);
+              setPhase(count);
+            }}
+          >
+            Bỏ qua lời chào
+          </button>
+        )}
         {phase < 0 ? (
           <button
             className="button primary"

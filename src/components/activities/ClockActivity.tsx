@@ -74,8 +74,8 @@ export function ClockActivity({ step, onReady }: WorkspaceProps) {
                 const n = Number(e.target.value);
                 setHour(n);
                 playEffect("tick");
+                onReady?.(n === target);
                 if (n === target) {
-                  onReady?.();
                   playEffect("correct");
                 }
               }}
@@ -88,7 +88,7 @@ export function ClockActivity({ step, onReady }: WorkspaceProps) {
                 onClick={() => {
                   setHour(n);
                   playEffect("tick");
-                  if (n === target) onReady?.();
+                  onReady?.(n === target);
                 }}
               >
                 {n} giờ

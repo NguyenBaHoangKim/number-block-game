@@ -5,10 +5,10 @@ import { NumberCharacter } from "../NumberCharacter";
 import { RotateCcw, MoveRight } from "lucide-react";
 export function NumberLineActivity({ step, onReady }: WorkspaceProps) {
   const { values } = step;
-  const ready = () => onReady?.();
   const [position, setPosition] = useState(values[0]);
   const reset = () => {
     setPosition(values[0]);
+    onReady?.(false);
     playEffect("pop");
   };
   return (
@@ -31,9 +31,10 @@ export function NumberLineActivity({ step, onReady }: WorkspaceProps) {
           className="button primary"
           disabled={position >= values[0] + values[1]}
           onClick={() => {
-            setPosition(position + 1);
+            const next = position + 1;
+            setPosition(next);
             playEffect("pop");
-            ready();
+            onReady?.(next === values[0] + values[1]);
           }}
         >
           Tiến 1 bước <MoveRight size={18} />

@@ -5,7 +5,6 @@ import { NumberCharacter } from "../NumberCharacter";
 import { Hand } from "lucide-react";
 export function MissingActivity({ step, onReady }: WorkspaceProps) {
   const { values } = step;
-  const ready = () => onReady?.();
   const [selected, setSelected] = useState<number | null>(null);
   const [placed, setPlaced] = useState(false);
 
@@ -16,7 +15,7 @@ export function MissingActivity({ step, onReady }: WorkspaceProps) {
     setSelected(n);
     setPlaced(true);
     playEffect(n === correct ? "correct" : "tryAgain");
-    if (n === correct) ready();
+    onReady?.(n === correct);
   };
   return (
     <div className="missing-workspace">
@@ -43,7 +42,7 @@ export function MissingActivity({ step, onReady }: WorkspaceProps) {
             </>
           )}
         </button>
-        <span>=</span>
+        <span>{placed && selected !== correct ? "≠" : "="}</span>
         <b>{target}</b>
       </div>
       <div className="actions center">
@@ -63,7 +62,7 @@ export function MissingActivity({ step, onReady }: WorkspaceProps) {
         {placed
           ? selected === correct
             ? `Đúng rồi! ${values[0]} + ${selected} = ${target}`
-            : "Chưa đủ khối rồi. Bé thử nhóm khác nhé!"
+            : `${selected! < correct ? "Chưa đủ khối" : "Nhiều khối quá"}. Bé thử nhóm khác nhé!`
           : "Kéo một số vào ô trống, hoặc chạm để chọn."}
       </p>
     </div>

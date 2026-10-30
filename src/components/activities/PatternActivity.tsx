@@ -6,7 +6,6 @@ export function PatternActivity({ step, onReady }: WorkspaceProps) {
   const { values } = step;
   const increment = step.config?.patternIncrement ?? 1;
   const answer = values[values.length - 1] + increment;
-  const ready = () => onReady?.();
   const [selected, setSelected] = useState<number | null>(null);
   return (
     <div className="pattern-workspace">
@@ -26,7 +25,7 @@ export function PatternActivity({ step, onReady }: WorkspaceProps) {
             onClick={() => {
               setSelected(v);
               playEffect(v === answer ? "correct" : "tryAgain");
-              if (v === answer) ready();
+              onReady?.(v === answer);
             }}
           >
             {v}

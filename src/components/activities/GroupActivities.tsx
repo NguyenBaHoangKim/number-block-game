@@ -58,7 +58,13 @@ export function GroupingActivity({ step, onReady }: WorkspaceProps) {
           <Sprout size={18} />
           {grown === groups ? "Khu vườn đã đủ mầm!" : "Trồng thêm một luống"}
         </button>
-        <button className="text-button" onClick={() => setGrown(0)}>
+        <button
+          className="text-button"
+          onClick={() => {
+            setGrown(0);
+            onReady?.(false);
+          }}
+        >
           <RotateCcw size={17} />
           Trồng lại
         </button>
@@ -134,6 +140,7 @@ export function SharingActivity({ step, onReady }: WorkspaceProps) {
         className="button secondary"
         onClick={() => {
           setShares(Array(people).fill(0));
+          onReady?.(false);
           playEffect("pop");
         }}
       >
@@ -180,6 +187,7 @@ export function ParityActivity({ step, onReady }: WorkspaceProps) {
             onClick={() => {
               setValue(value % 2 ? value - 1 : value + 1);
               setPaired(0);
+              onReady?.(false);
               playEffect("pop");
             }}
           >

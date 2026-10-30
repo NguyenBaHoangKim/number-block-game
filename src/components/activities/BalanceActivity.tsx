@@ -4,7 +4,9 @@ import { playEffect } from "../../services/audioService";
 import { NumberCharacter } from "../NumberCharacter";
 export function BalanceActivity({ step, onReady }: WorkspaceProps) {
   const { values } = step;
-  const ready = () => onReady?.();
+  const target = step.config?.balanceTarget;
+  const ready = (nextLeft: number, nextRight: number) =>
+    onReady?.(!target || (nextLeft === target[0] && nextRight === target[1]));
   const [left, setLeft] = useState(values[0]);
   const [balanceTotal, setBalanceTotal] = useState(values[0] + values[1]);
 
@@ -51,10 +53,10 @@ export function BalanceActivity({ step, onReady }: WorkspaceProps) {
             onClick={() => {
               setLeft(left - 1);
               playEffect("pop");
-              ready();
+              ready(left - 1, right + 1);
             }}
           >
-            ← Chuyển sang phải
+            Chuyển sang phải →
           </button>
           <button
             className="button secondary"
@@ -62,21 +64,22 @@ export function BalanceActivity({ step, onReady }: WorkspaceProps) {
             onClick={() => {
               setLeft(left + 1);
               playEffect("pop");
-              ready();
+              ready(left + 1, right - 1);
             }}
           >
-            Chuyển sang trái →
+            ← Chuyển sang trái
           </button>
           <button
             className="text-button"
             onClick={() => {
-              setBalanceTotal(4);
-              setLeft(2);
+              const [a, b] = target ?? [2, 2];
+              setBalanceTotal(a + b);
+              setLeft(a);
               playEffect("pop");
-              ready();
+              ready(a, b);
             }}
           >
-            Thử 2 và 2
+            {target ? `Về ${target[0]} và ${target[1]}` : "Thử 2 và 2"}
           </button>
         </div>
       )}

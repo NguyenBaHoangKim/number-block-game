@@ -132,6 +132,7 @@ interface Seed {
   introduction?: CharacterIntroduction;
   practiceValues?: number[];
   characterLabels?: "number" | "name";
+  config?: import("../types/lesson").ActivityConfig;
 }
 const seeds: Seed[] = [
   {
@@ -147,19 +148,19 @@ const seeds: Seed[] = [
       closing:
         "Cả ba bạn đã đến rồi! Bây giờ, cùng đếm những khối nhỏ của Nắng nhé.",
       replayLabel: "Chào lại các bạn",
-      cueDurationMs: 2200,
+      cueDurationMs: 1760,
       cues: [
         {
           value: 1,
-          greeting: "Chào bé! Tớ là Mầm. Nhỏ xíu mà thích khám phá lắm!",
+          greeting: "Chào bé! Tớ là Mầm, thích khám phá lắm!",
         },
         {
           value: 2,
-          greeting: "Xin chào! Tớ là Mây. Tớ thích nhảy cùng bạn bè!",
+          greeting: "Chào bé! Tớ là Mây, thích nhảy cùng bạn!",
         },
         {
           value: 3,
-          greeting: "Tớ là Nắng! Bé cùng đếm những khối nhỏ của tớ nhé!",
+          greeting: "Tớ là Nắng! Cùng đếm các khối của tớ nhé!",
         },
       ],
     },
@@ -177,30 +178,29 @@ const seeds: Seed[] = [
         "Hôm nay có hai người bạn mới đến khu vườn. Bé cùng chào các bạn nhé!",
       invitation: "Gọi Lá và Đào ra chơi!",
       closing:
-        "Lá và Đào rất vui được gặp bé! Cùng đếm từng khối của hai bạn nào.",
+        "Lá và Đào rất vui được gặp bé! Cùng đếm từng khối của bạn Đào nào.",
       replayLabel: "Chào lại Lá và Đào",
-      cueDurationMs: 2400,
+      cueDurationMs: 1920,
       cues: [
         {
           value: 4,
-          greeting:
-            "Chào bé! Tớ là Lá. Tớ thích chăm cây và khám phá khu vườn!",
+          greeting: "Chào bé! Tớ là Lá, thích chăm cây trong vườn!",
         },
         {
           value: 5,
-          greeting:
-            "Xin chào! Tớ là Đào. Tớ thích nhảy múa. Mình cùng chơi nhé!",
+          greeting: "Chào bé! Tớ là Đào, thích nhảy múa. Cùng chơi nhé!",
         },
       ],
     },
     activity: "count",
     values: [4, 5],
+    config: { countTargetGroups: [1] },
     characterLabels: "name",
     prompt: "Nhân vật nào có năm khối?",
     options: ["Mây", "Lá", "Đào"],
     answer: "Đào",
     explanation: "Bạn Đào có đúng 5 khối đơn vị.",
-    hint: "Đếm từng khối của bạn đứng bên phải nhé.",
+    hint: "Đếm từng khối của bạn Đào đứng bên phải nhé.",
   },
   {
     title: "Cùng đếm từ 1 đến 5",
@@ -220,43 +220,41 @@ const seeds: Seed[] = [
       opening: "Năm người bạn mới đang đến thăm hòn đảo. Bé cùng làm quen nhé!",
       invitation: "Chào những người bạn mới!",
       closing:
-        "Cả năm người bạn đã đến rồi! Cùng khám phá những nhóm khối lớn hơn nhé.",
+        "Cả năm người bạn đã đến rồi! Cùng đếm các khối của bạn Trời nhé.",
       replayLabel: "Chào lại năm người bạn",
-      cueDurationMs: 2400,
+      cueDurationMs: 1920,
       cues: [
         {
           value: 6,
-          greeting:
-            "Chào bé! Tớ là Biển. Tớ mang những con sóng nhỏ đến chơi cùng bé!",
+          greeting: "Chào bé! Tớ là Biển, mang sóng nhỏ đến chơi!",
         },
         {
           value: 7,
-          greeting: "Tớ là Mơ. Tớ có rất nhiều ý tưởng hay. Cùng khám phá nhé!",
+          greeting: "Tớ là Mơ, có nhiều ý tưởng hay. Cùng chơi nhé!",
         },
         {
           value: 8,
-          greeting:
-            "Xin chào, tớ là Cam! Tớ thích chạy nhảy và giúp đỡ bạn bè!",
+          greeting: "Tớ là Cam! Tớ thích chạy nhảy và giúp bạn!",
         },
         {
           value: 9,
-          greeting:
-            "Tớ là Rêu. Mình cứ từ từ đếm từng khối, không cần vội nhé!",
+          greeting: "Tớ là Rêu. Mình từ từ đếm từng khối nhé!",
         },
         {
           value: 10,
-          greeting:
-            "Chào bé, tớ là Trời! Cùng những người bạn nhỏ, mình làm được rất nhiều điều!",
+          greeting: "Chào bé, tớ là Trời! Cùng nhau khám phá nào!",
         },
       ],
     },
     activity: "count",
     values: [6, 7, 8, 9, 10],
+    practiceValues: [10],
+    characterLabels: "name",
     prompt: "Bạn Trời có bao nhiêu khối?",
     options: [8, 9, 10],
     answer: 10,
     explanation: "Hai cột, mỗi cột năm khối: tất cả là 10.",
-    hint: "Chạm từng ô, lần lượt từ dưới lên trên.",
+    hint: "Chạm từng ô của bạn Trời để đếm đến 10 nhé.",
   },
   {
     title: "Số và số lượng",
@@ -414,6 +412,7 @@ const coreLessons: Lesson[] = seeds.map((s, i) => {
         instruction: s.hint,
         activity: s.activity,
         values: s.practiceValues ?? s.values,
+        config: s.config,
         characterLabels: s.characterLabels,
         hint: s.hint,
         alternatives: s.alternatives,
@@ -454,6 +453,7 @@ const coreLessons: Lesson[] = seeds.map((s, i) => {
               instruction: "Tách 6 khối thành hai nhóm 3 khối.",
               activity: "split" as const,
               values: [6, 3],
+              config: { splitTarget: 3 },
               hint: "Bấm Tách khối hoặc kéo nhóm ra hai bên.",
             },
             {
@@ -463,6 +463,7 @@ const coreLessons: Lesson[] = seeds.map((s, i) => {
               instruction: "Chuyển khối để thử rồi đưa về 3 và 3 nhé!",
               activity: "compare" as const,
               values: [3, 3],
+              config: { balanceTarget: [3, 3] as [number, number] },
               hint: "Hai bên cùng có ba khối nên chiếc cân nằm ngang.",
             },
           ]
@@ -474,6 +475,7 @@ const coreLessons: Lesson[] = seeds.map((s, i) => {
         instruction: s.prompt,
         activity: s.activity,
         values: s.practiceValues ?? s.values,
+        config: s.config,
         characterLabels: s.characterLabels,
         question,
         hint: s.hint,
@@ -1106,3 +1108,5 @@ export const spokenSymbols: Record<string, string> = {
   Chẵn: "Số chẵn",
   Lẻ: "Số lẻ",
 };
+
+export const narrationConfig = { greetingPauseMs: 280 };

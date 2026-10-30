@@ -33,6 +33,10 @@ export interface CharacterIntroduction {
 }
 export type ShapeKind = "square" | "triangle" | "circle" | "rectangle";
 export interface ActivityConfig {
+  /** Indices in values that belong to this counting task; omitted means every group. */
+  countTargetGroups?: number[];
+  balanceTarget?: [number, number];
+  splitTarget?: number;
   patternIncrement?: number;
   flashMs?: number;
   targetShape?: ShapeKind;
@@ -64,7 +68,11 @@ export interface Lesson {
 export interface Progress {
   stars: Record<string, number>;
   lastLesson: string | null;
-  practice: { quickBest: number; rounds: number };
+  practice: {
+    quickBest: number;
+    rounds: number;
+    bestByLength?: Record<string, number>;
+  };
   settings: {
     effects: boolean;
     music: boolean;

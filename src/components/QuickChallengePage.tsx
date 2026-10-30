@@ -12,6 +12,7 @@ import {
 import { BlockWorkspace } from "./BlockWorkspace";
 import { ModeNavigation } from "./PlayModes";
 import { playEffect, setAudioMood } from "../services/audioService";
+import { validateLegacyQuestion } from "../features/exercises/legacyValidators";
 import type { LessonStep } from "../types/lesson";
 function shuffled<T>(items: T[]) {
   const result = [...items];
@@ -24,14 +25,17 @@ function shuffled<T>(items: T[]) {
 export function QuickChallengePage({
   onNavigate,
   best,
+  bestByLength,
   onComplete,
 }: {
   onNavigate: (route: string) => void;
   best: number;
-  onComplete: (score: number) => void;
+  bestByLength?: Record<string, number>;
+  onComplete: (score: number, length: number) => void;
 }) {
   const [timed, setTimed] = useState(false),
     [difficulty, setDifficulty] = useState(0),
+    [length, setLength] = useState(challengeConfig.questionsPerRound),
     [queue, setQueue] = useState<LessonStep[]>([]),
     [index, setIndex] = useState(0),
     [seconds, setSeconds] = useState(challengeConfig.seconds),
@@ -39,12 +43,13 @@ export function QuickChallengePage({
     [status, setStatus] = useState<"wrong" | "correct" | null>(null),
     [score, setScore] = useState(0),
     [done, setDone] = useState(false);
+  const currentBest = length === 5 ? best : (bestByLength?.[length] ?? 0);
   const active = queue.length > 0 && !done;
   const step = queue[index];
   const narrationText = done
     ? voiceCopy.complete
     : step?.question
-      ? `${step.question.prompt} ${voiceCopy.quizHelp}`
+      ? step.question.prompt
       : voiceCopy.challenge;
   useNarration(narrationText);
   useEffect(() => {
@@ -57,19 +62,18 @@ export function QuickChallengePage({
   useEffect(() => {
     if (active && timed && seconds === 0) {
       setDone(true);
-      onComplete(score);
+      onComplete(score, queue.length);
       setAudioMood("celebration");
       playEffect("complete");
     }
-  }, [active, timed, seconds, onComplete, score]);
+  }, [active, timed, seconds, onComplete, score, queue.length]);
   function start() {
     const pool = lessons
       .filter((l) => !difficulty || l.difficulty === difficulty)
       .flatMap((l) => l.steps.filter((s) => s.question));
     const round = shuffled(pool);
-    while (round.length < challengeConfig.questionsPerRound)
-      round.push(pool[round.length % pool.length]);
-    setQueue(round.slice(0, challengeConfig.questionsPerRound));
+    while (round.length < length) round.push(pool[round.length % pool.length]);
+    setQueue(round.slice(0, length));
     setIndex(0);
     setSeconds(challengeConfig.seconds);
     setSelected(null);
@@ -82,7 +86,7 @@ export function QuickChallengePage({
   function next() {
     if (index + 1 === queue.length) {
       setDone(true);
-      onComplete(score);
+      onComplete(score, queue.length);
       setAudioMood("celebration");
       playEffect("complete");
     } else {
@@ -97,7 +101,7 @@ export function QuickChallengePage({
       <ModeNavigation active="challenge" onNavigate={onNavigate} />
       {!queue.length ? (
         <div className="challenge-welcome">
-          <span className="pill">Mỗi vòng 5 câu · Có thể thử lại</span>
+          <span className="pill">Mỗi vòng {length} câu · Có thể thử lại</span>
           <h1>{challengeConfig.title}</h1>
           <p>Không cần vội. Bé tự chọn có dùng đồng hồ hay không.</p>
           <label className="challenge-level">
@@ -114,6 +118,20 @@ export function QuickChallengePage({
               ))}
             </select>
           </label>
+          <label className="challenge-level">
+            Số câu mỗi vòng
+            <select
+              aria-label="Số câu mỗi vòng"
+              value={length}
+              onChange={(e) => setLength(Number(e.target.value))}
+            >
+              {[5, 10, 15].map((n) => (
+                <option key={n} value={n}>
+                  {n} câu
+                </option>
+              ))}
+            </select>
+          </label>
           <label className="timer-choice">
             <input
               type="checkbox"
@@ -124,7 +142,7 @@ export function QuickChallengePage({
             Thêm đồng hồ 60 giây
           </label>
           <p className="small">
-            Kỷ lục của bé: {best} / {challengeConfig.questionsPerRound} câu
+            Kỷ lục của bé: {currentBest} / {length} câu
           </p>
           <button className="button primary" onClick={start}>
             Bắt đầu thử thách
@@ -144,8 +162,8 @@ export function QuickChallengePage({
               : "Bé đã hoàn thành vòng thử thách."}
           </p>
           <p className="small">
-            Kỷ lục: {Math.max(best, score)} câu · Điểm thử thách được lưu riêng,
-            không cộng sao bài học.
+            Kỷ lục: {Math.max(currentBest, score)} câu · Điểm thử thách được lưu
+            riêng, không cộng sao bài học.
           </p>
           <div className="actions center">
             <button className="button primary" onClick={start}>
@@ -223,7 +241,9 @@ export function QuickChallengePage({
                   className="button primary"
                   disabled={selected === null}
                   onClick={() => {
-                    if (selected === step.question?.answer) {
+                    const result = validateLegacyQuestion(step, selected);
+                    if (result.status === "incomplete") return;
+                    if (result.status === "correct") {
                       setStatus("correct");
                       setScore((s) => s + 1);
                       playEffect("correct");
